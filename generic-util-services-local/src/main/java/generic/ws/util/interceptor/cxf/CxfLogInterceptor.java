@@ -40,8 +40,8 @@ public class CxfLogInterceptor extends AbstractSoapInterceptor {
                 StringWriter swriter = new StringWriter();
                 Transformer serializer = (TransformerFactory.newInstance()).newTransformer();
                 serializer.transform(new StreamSource(bos.getInputStream()), new StreamResult(swriter));
-                //log.info(">>soap message received:" + swriter.toString());
-                System.out.println(">>soap message received:" + swriter.toString());
+                log.info(">>soap message received:" + swriter.toString());
+                //System.out.println(">>soap message received:" + swriter.toString());
                 bos.close();
             } catch (Exception e) {
                 throw new Fault(e);
